@@ -2,13 +2,13 @@
 #include<stdlib.h>
 #include<string.h>
 
-//¥´¤@­Ó¼¯´µªº´I§t¬O
-//¥Îsturect ¦s¼¯´µ
-//ÅÜ¬°¤j¼gªº´I§t¬O  a=97 z=122 A=65 Z=90
-//Åª¨úÀÉ®×¥Î±o°Æ¨ç¦¡
+//æ‰“ä¸€å€‹æ‘©æ–¯çš„å¯Œå«æ˜¯
+//ç”¨sturect å­˜æ‘©æ–¯
+//è®Šç‚ºå¤§å¯«çš„å¯Œå«æ˜¯  a=97 z=122 A=65 Z=90
+//è®€å–æª”æ¡ˆç”¨å¾—å‰¯å‡½å¼
 
-//1­nÅª¨ú¼¯´µ±K½X\
-2.¥Î°j°ÏÅª¨úcode\
+//1è¦è®€å–æ‘©æ–¯å¯†ç¢¼\
+2.ç”¨è¿´å€è®€å–code\
 3.
 FILE *mos_in;
 int k=0;
@@ -16,7 +16,7 @@ char mos(char *code){
 	char mo2[10],mo1;
 	
 	mos_in=fopen("mos.txt","r");
-	while(fscanf(mos_in,"%s",&mo1)!=EOF){	//·Qª¾¹D¬°¤°»ò³o¸Ì¥uscanf¤@¦¸ //³o¸Ì¥Î%c ­ì¥»¦bA·|¥X²{°İÃD §ï%s´N¤£·| ¯u¬O©_¤F 
+	while(fscanf(mos_in,"%s",&mo1)!=EOF){	//æƒ³çŸ¥é“ç‚ºä»€éº¼é€™è£¡åªscanfä¸€æ¬¡ //é€™è£¡ç”¨%c åŸæœ¬åœ¨Aæœƒå‡ºç¾å•é¡Œ æ”¹%så°±ä¸æœƒ çœŸæ˜¯å¥‡äº† 
 		fscanf(mos_in,"%s",mo2);
 		//printf("%c\t%s\n",mo1,mo2);
 		//fscanf(mos_in,"%c",&mo1);
@@ -46,7 +46,7 @@ char en_mos(char code){
 	FILE *mos_out;
 	mos_in=fopen("mos.txt","r");
 	mos_out=fopen("output_decode.txt","w");
-	while(fscanf(mos_in,"%s",&mo1)!=EOF){	//·Qª¾¹D¬°¤°»ò³o¸Ì¥uscanf¤@¦¸ //³o¸Ì¥Î%c ­ì¥»¦bA·|¥X²{°İÃD §ï%s´N¤£·| ¯u¬O©_¤F 
+	while(fscanf(mos_in,"%s",&mo1)!=EOF){	//æƒ³çŸ¥é“ç‚ºä»€éº¼é€™è£¡åªscanfä¸€æ¬¡ //é€™è£¡ç”¨%c åŸæœ¬åœ¨Aæœƒå‡ºç¾å•é¡Œ æ”¹%så°±ä¸æœƒ çœŸæ˜¯å¥‡äº† 
 		fscanf(mos_in,"%s",mo2);
 		//printf("%c\t%s\n",mo1,mo2);
 		//fscanf(mos_in,"%c",&mo1);
