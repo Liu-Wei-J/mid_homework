@@ -10,6 +10,8 @@
 //1要讀取摩斯密碼\
 2.用迴區讀取code\
 3.
+FILE *mos_out;	
+	
 FILE *mos_in;
 int k=0;
 char mos(char *code){
@@ -43,15 +45,15 @@ char mos(char *code){
 
 char en_mos(char code){
 	char mo2[10],mo1;
-	FILE *mos_out;
+	
 	mos_in=fopen("mos.txt","r");
-	mos_out=fopen("output_decode.txt","w");
 	while(fscanf(mos_in,"%s",&mo1)!=EOF){	//想知道為什麼這裡只scanf一次 //這裡用%c 原本在A會出現問題 改%s就不會 真是奇了 
 		fscanf(mos_in,"%s",mo2);
 		//printf("%c\t%s\n",mo1,mo2);
 		//fscanf(mos_in,"%c",&mo1);
 		
-		if(strcmp(&code,&mo1)==0){
+		if(code==mo1){
+			//printf("%s ",mo2);
 			fprintf(mos_out,"%s ",mo2);
 			fclose(mos_in);
 			
@@ -60,7 +62,8 @@ char en_mos(char code){
 	}
 	
 			
-	if(strcmp(&code,&mo1)!=0){
+	if(code!=mo1){
+		//printf("%c ",code);
 		fprintf(mos_out,"%c ",code);
 		fclose(mos_in);
 			
@@ -109,8 +112,12 @@ char encode(char letter,char pw[20]){
 	if(64<letter&&letter<91){
 		
 		
-		if(64<pw[k]&&pw[k]<91)
+		if(64<pw[k]&&pw[k]<91){
+			//printf("%c\n",(letter-65+pw[k]-65)%26+65);
 			return (letter-65+pw[k++]-65)%26+65;
+		} 
+			
+			
 		else {
 			printf("error");
 			exit(0);
@@ -118,6 +125,7 @@ char encode(char letter,char pw[20]){
 			
 	}
 	else if(letter=='-'){
+		//printf("0\n");
 		return '|';
 	}
 	else 
@@ -159,6 +167,7 @@ int main(){
     if(c==2){
     	printf("enter the password:");
     	scanf("%s",pw);
+    	mos_out=fopen("output_decode.txt","w");
     	while(fscanf(in_enc,"%c",&wi) != EOF){
     		en_mos(encode(wi,pw));
 		}
